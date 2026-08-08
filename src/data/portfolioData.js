@@ -114,11 +114,13 @@ export const projects = [
     name: "Folk Music Web",
     role: "Web Developer",
     description:
-      "Vývoj informačního webu věnovaného folkové hudbě. Web vznikl jako ročníková práce 1. ročníku v předmětu programování na střední škole. Web je implementován v čistém HTML a CSS. Web obsahuje informace o folkové hudbě, významných interpretech ve folkmetalu a nástroji Hurdy Gurdy.",
+      "Vývoj informačního webu věnovaného folkové hudbě. Web vznikl jako ročníková práce 1. ročníku v předmětu programování na střední škole. Web je implementován v čistém HTML a CSS. Web obsahuje informace o folkové hudbě, významných interpretech ve folkmetalu a nástroji Hurdy Gurdy. Původní verze nebyla plně responzivní, proto jsem web přepracoval a upravil tak, aby byl plně responzivní a přístupná i na mobilních zařízeních. Proto jsem ji později předělal.",
     tags: ["Web Development", "HTML", "CSS"],
     links: [
       { label: "GitHub", url: "https://github.com/WestrCZ/FolkMusicWeb/" },
       { label: "Folk Music Web", url: "https://westrcz.github.io/FolkMusicWeb/" },
+      { label: "GitHub (Původní verze)", url: "https://github.com/WestrCZ/FolkMusicWeb_Old" },
+      { label: "Folk Music Web (Původní verze)", url: "https://westrcz.github.io/FolkMusicWeb_Old/" },
     ],
   },
   {
@@ -142,6 +144,28 @@ export const projects = [
     links: [
       { label: "GitHub", url: "https://github.com/Kultikino/KultikinoWeb" },
       { label: "Kultikino.cz", url: "https://kultikino.cz" },
+    ],
+  },
+  {
+    id: "HogoFrogo",
+    name: "HogoFrogo",
+    role: "Game Developer",
+    description:
+      "Vývoj hry v jazyce Python spolu s knihovnou Pygame. Hra je implementována jako desktopová aplikace a je určena pro hraní na počítači. Hráč ovládá postavu žabáka, který se snaží proskákat levely a zachránit svůj sendvič, který mu ukradl král much. Hra obsahuje několik úrovní obtížnosti a je navržena tak, aby byla zábavná, ale zároveň obtížná. Momentální verze je nehratelná a dostupná pouze jako zdrojový kód. Vyvíjeli jsme ji v tříčlenném týmu abychom naučili kamaráda programovat, a bohužel jsme na ni neměli dále čas, plánujeme ji však dodělat.",
+    tags: ["Game Development", "Python", "Pygame", "Desktop Application"],
+    links: [
+      { label: "GitHub", url: "https://github.com/HogoFrogo/HogoFrogo/tree/hogo-frogo-pygame-attempt" },
+    ],
+  },
+  {
+    id: "NeuralNetwork",
+    name: "Neuronová síť",
+    role: "Týmový vedoucí / Lead Developer",
+    description:
+      "Vývoj a implementace neuronové sítě v jazyce Python v rámci školního matematického semináře. Neuronová síť sloužila k rozpoznání ručně psané číslice. Tento projekt nakonec nebyl dodělán, protože jsme se rozhodli ho přenechat jednomu z nás jako maturitní projekt. Projekt je tedy v nefunkčním stavu a slouží pouze jako ukázka. Během vývoje jsme se naučili základy strojového učení. Projekt v budoucnu plánuji předělat a postavit jednak na základě běžných knihoven a druhak dodělat verzi, kterou jsme rozdělali, kde se snažíme knihovny nepoužívat.",
+    tags: ["Machine Learning", "Python", "Data Analysis"],
+    links: [
+      { label: "GitHub", url: "https://github.com/WestrCZ/NeuralNetworksITG" },
     ],
   },
 ];
