@@ -62,7 +62,7 @@ export const experience = [
         id: "flow-of-life",
         name: "Flow of Life",
         summary:
-          "Kompletní systém pro evidenci pacientů v medicínské oblasti (vývoj v 6členném týmu).",
+          "Kompletní systém pro evidenci pacientů v medicínské oblasti.",
         stack: [".NET 8", "ASP.NET Core", "EF Core", "Marten (PostgreSQL)", "Blazor", "Use Case pattern"],
         description:
           "Na rozsáhlém medicínském systému jsem se v šestičlenném týmu podílel na realizaci klíčové business logiky, vývoji REST API a datového feedingu. Celý projekt stavěl na Use Case patternu. Úzce jsem pracoval s dokumentovou databází Marten nad PostgreSQL, kde jsem navrhoval a upravoval datové struktury, a zároveň jsem odbavoval navazující úpravy a opravy v uživatelském rozhraní postaveném na Blazoru.",
