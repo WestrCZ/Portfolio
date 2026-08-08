@@ -8,6 +8,9 @@ export default function EmployerCard({ employer }) {
         <p className="font-mono text-xs text-slate-500 mt-1">
           {employer.role}
           {employer.duration ? ` · ${employer.duration}` : ""}
+          <br />
+          <br />
+          {employer.overview ? ` · ${employer.overview}` : ""}
         </p>
       </div>
       <div className="grid sm:grid-cols-2 gap-4">

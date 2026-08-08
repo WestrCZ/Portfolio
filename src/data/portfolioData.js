@@ -10,7 +10,7 @@ export const profile = {
   title: "Backend .NET Developer & Cybersecurity Enthusiast",
   location: "Brno, CZ",
   availability: "Hledám 0.5 úvazek Remote / Hybrid (20h/týdně)",
-  bio: "Backendový vývojář s téměř 1.5 rokem komerční praxe ve společnosti RIGANTI s.r.o. Specializuji se na C# / .NET 8, architektury DDD, CQS/CQRS a Onion. Aktivně se věnuji bezpečnosti webových aplikací (AppSec) a dalším oblastem kyberbezpečnosti.",
+  bio: "Backendový vývojář s téměř 1.5 rokem komerční praxe ve společnosti RIGANTI s.r.o. Specializuji se na C# / .NET Core, architektury DDD, CQS/CQRS a Onion. Aktivně se věnuji bezpečnosti webových aplikací (AppSec) a dalším oblastem kyberbezpečnosti.",
   links: {
     github: "https://github.com/WestrCZ/",
     linkedin: "https://www.linkedin.com/in/janek-hujer-8872a8280/",
@@ -47,24 +47,25 @@ export const experience = [
   {
     company: "RIGANTI s.r.o.",
     role: ".NET Backend Developer",
-    duration: "1.5 roku",
+    duration: "Červen 2024 – září 2025 (1.5 roku)",
+    overview: "Vývoj komerčních enterprise systémů pod vedením předních českých .NET architektů. Práce na reálných projektech s moderním stackem .NET 8, pokročilými architektonickými vzory (CQS, Use Case pattern) a kombinací relačních a dokumentových databází.",
     projects: [
       {
         id: "warrantytraq",
         name: "WarrantyTRAQ",
-        summary: "Webová aplikace pro terénní servisní techniky.",
-        stack: [".NET 8", "ASP.NET Core", "EF Core", "DotVVM"],
+        summary: "Webová aplikace pro terénní servisní techniky provádějící údržbu a opravy zařízení.",
+        stack: [".NET 8", "ASP.NET Core", "EF Core", "MSSQL","DotVVM", "CQS"],
         description:
-          "Refaktoring architektury z původní MVC na CQS, návrh a úpravy Code-First databáze, vývoj backendové i frontendové logiky v DotVVM.",
+          "V rámci tříčlenného týmu jsem pracoval na aplikaci určené pro techniky v terénu. Mým hlavním architektonickým přínosem byl kompletní refaktoring projektu z původní MVC architektury na čisté CQS (Command Query Separation), což výrazně zpřehlednilo kódovou bázi a usnadnilo další škálování. Mimo to jsem samostatně navrhoval a upravoval Code-First databázové modely na MSSQL a vyvíjel kompletní backendovou i frontendovou logiku v UI frameworku DotVVM.",
       },
       {
         id: "flow-of-life",
         name: "Flow of Life",
         summary:
           "Kompletní systém pro evidenci pacientů v medicínské oblasti (vývoj v 6členném týmu).",
-        stack: [".NET 8", "ASP.NET Core", "EF Core", "Marten (PostgreSQL)", "Blazor"],
+        stack: [".NET 8", "ASP.NET Core", "EF Core", "Marten (PostgreSQL)", "Blazor", "Use Case pattern"],
         description:
-          "Návrh a vývoj business logiky, REST API, datafeedingu, úpravy v dokumentové databázi Marten (konzultované se seniorními architekty), Use Case pattern, drobné opravy v Blazoru.",
+          "Na rozsáhlém medicínském systému jsem se v šestičlenném týmu podílel na realizaci klíčové business logiky, vývoji REST API a datového feedingu. Celý projekt stavěl na Use Case patternu. Úzce jsem pracoval s dokumentovou databází Marten nad PostgreSQL, kde jsem navrhoval a upravoval datové struktury, a zároveň jsem odbavoval navazující úpravy a opravy v uživatelském rozhraní postaveném na Blazoru.",
       },
     ],
   },
