@@ -10,7 +10,7 @@ export default function ContactSection() {
           Pojďme spolu něco postavit.
         </h2>
         <p className="mt-4 text-slate-400 max-w-xl mx-auto">
-          {profile.availability}. Ozvi se, pokud hledáš backendového vývojáře
+          {profile.availability}. Ozvěte se, pokud hledáte backendového vývojáře
           se smyslem pro architekturu a bezpečnost.
         </p>
         <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
