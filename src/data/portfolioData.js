@@ -39,35 +39,51 @@ export const skills = [
   { name: "Docker", icon: "Cpu" },
   { name: "Git", icon: "Folders" },
   { name: "Figma", icon: "LayoutPanelLeft" },
-  { name: "Jira", icon: "CopyCheck"},
+  { name: "Jira", icon: "CopyCheck" },
 
 ];
 
-// Komerční praxe — jeden zaměstnavatel, více projektů v rámci role.
-export const experience = {
-  company: "RIGANTI s.r.o.",
-  role: ".NET Backend Developer",
-  duration: "1.5 roku",
-  projects: [
-    {
-      id: "warrantytraq",
-      name: "WarrantyTRAQ",
-      summary: "Webová aplikace pro terénní servisní techniky.",
-      stack: [".NET 8", "ASP.NET Core", "EF Core", "DotVVM"],
-      description:
-        "Refaktoring architektury z původní MVC na CQS, návrh a úpravy Code-First databáze, vývoj backendové i frontendové logiky v DotVVM.",
-    },
-    {
-      id: "flow-of-life",
-      name: "Flow of Life",
-      summary:
-        "Kompletní systém pro evidenci pacientů v medicínské oblasti (vývoj v 6členném týmu).",
-      stack: [".NET 8", "ASP.NET Core", "EF Core", "Marten (PostgreSQL)", "Blazor"],
-      description:
-        "Návrh a vývoj business logiky, REST API, datafeedingu, úpravy v dokumentové databázi Marten (konzultované se seniorními architekty), Use Case pattern, drobné opravy v Blazoru.",
-    },
-  ],
-};
+export const experience = [
+  {
+    company: "RIGANTI s.r.o.",
+    role: ".NET Backend Developer",
+    duration: "1.5 roku",
+    projects: [
+      {
+        id: "warrantytraq",
+        name: "WarrantyTRAQ",
+        summary: "Webová aplikace pro terénní servisní techniky.",
+        stack: [".NET 8", "ASP.NET Core", "EF Core", "DotVVM"],
+        description:
+          "Refaktoring architektury z původní MVC na CQS, návrh a úpravy Code-First databáze, vývoj backendové i frontendové logiky v DotVVM.",
+      },
+      {
+        id: "flow-of-life",
+        name: "Flow of Life",
+        summary:
+          "Kompletní systém pro evidenci pacientů v medicínské oblasti (vývoj v 6členném týmu).",
+        stack: [".NET 8", "ASP.NET Core", "EF Core", "Marten (PostgreSQL)", "Blazor"],
+        description:
+          "Návrh a vývoj business logiky, REST API, datafeedingu, úpravy v dokumentové databázi Marten (konzultované se seniorními architekty), Use Case pattern, drobné opravy v Blazoru.",
+      },
+    ],
+  },
+  {
+    company: "Soukromé zakázky",
+    role: "IT Technik",
+    duration: "",
+    projects: [
+      {
+        id: "spravaPC",
+        name: "Správa počítačů a sítí",
+        summary: "Správa a údržba počítačů, zařízení a sítí pro soukromé klienty.",
+        stack: ["Windows", "Linux", "Basic Networking", "Proxmox"],
+        description:
+          "Instalace, konfigurace a údržba počítačů, sítí a dalších zařízení pro soukromé klienty. Řešení a diagnostika problémů s hardwarem a softwarem, nastavení zabezpečení a správa Windows OS. Ve škole jsem spravoval Proxmox linux server na studentské projekty.",
+      },
+    ],
+  },
+];
 
 // Vybrané osobní / školní projekty.
 export const projects = [
