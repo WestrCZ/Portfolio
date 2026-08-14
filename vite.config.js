@@ -12,5 +12,5 @@ export default defineConfig({
   // the postbuild step in scripts/postbuild.mjs — so /cs/ and /en/ will
   // automatically become "<base>cs/" and "<base>en/" without any further
   // changes if you update this value.
-  base: "/",
+  base: "/Portfolio/",
 });
