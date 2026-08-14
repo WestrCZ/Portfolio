@@ -1,13 +1,22 @@
 // =========================================================================
-// portfolioData.js
+// portfolioData.cs.js
 //
-// App.jsx tato data pouze importuje a vykresluje — nový projekt nebo
-// zkušenost lze přidat přidáním jednoho objektu do příslušného pole níže.
+// Czech portfolio content: profile, skills, experience, projects.
+// Components never import this directly — they read the current locale's
+// data through the useI18n() hook, which picks this file or
+// portfolioData.en.js based on the active locale.
+//
+// Keep the structure of the localized portfolio data in sync.
+// Content may differ, schema must not.
+//
+// Technology, company and project names are intentionally left
+// untranslated (see portfolioData.en.js for the same rule) — "C#",
+// "PostgreSQL", "RIGANTI s.r.o.", "HiveSync" etc. don't get translated.
 // =========================================================================
 
-export const profile = {
+const profile = {
   name: "Janek Hujer",
-  title: "Backend .NET Developer & Cybersecurity Enthusiast",
+  title: "Backend .NET vývojář & Nadšenec do Kyberbezpečnosti",
   location: "Brno, CZ",
   availability: "Hledám 0.5 úvazek Remote / Hybrid (20h/týdně)",
   bio: "Backendový vývojář s téměř 1.5 rokem komerční praxe ve společnosti RIGANTI s.r.o. Specializuji se na C# / .NET Core, architektury DDD, CQS/CQRS a Onion. Aktivně se věnuji bezpečnosti webových aplikací (AppSec) a dalším oblastem kyberbezpečnosti.",
@@ -18,8 +27,10 @@ export const profile = {
   },
 };
 
-// Ikony jsou napojené v App.jsx přes klíč "icon" (název z lucide-react).
-export const skills = [
+// Ikony jsou napojené v StackSection.jsx přes klíč "icon" (název z lucide-react).
+// Technologie se nepřekládají, pole je proto sdílené i obsahově stejné
+// v obou jazykových verzích.
+const skills = [
   { name: "REST API", icon: "Code2" },
   { name: "C#", icon: "Code2" },
   { name: "ASP.NET Core", icon: "Cpu" },
@@ -40,29 +51,28 @@ export const skills = [
   { name: "Git", icon: "Folders" },
   { name: "Figma", icon: "LayoutPanelLeft" },
   { name: "Jira", icon: "CopyCheck" },
-
 ];
 
-export const experience = [
+const experience = [
   {
     company: "RIGANTI s.r.o.",
     role: ".NET Backend Developer",
     duration: "Červen 2024 – září 2025 (1.5 roku)",
-    overview: "Vývoj komerčních enterprise systémů pod vedením předních českých .NET architektů. Práce na reálných projektech s moderním stackem .NET 8, pokročilými architektonickými vzory (CQS, Use Case pattern) a kombinací relačních a dokumentových databází.",
+    overview:
+      "Vývoj komerčních enterprise systémů pod vedením předních českých .NET architektů. Práce na reálných projektech s moderním stackem .NET 8, pokročilými architektonickými vzory (CQS, Use Case pattern) a kombinací relačních a dokumentových databází.",
     projects: [
       {
         id: "warrantytraq",
         name: "WarrantyTRAQ",
         summary: "Webová aplikace pro terénní servisní techniky provádějící údržbu a opravy zařízení.",
-        stack: [".NET 8", "ASP.NET Core", "EF Core", "MSSQL","DotVVM", "CQS"],
+        stack: [".NET 8", "ASP.NET Core", "EF Core", "MSSQL", "DotVVM", "CQS"],
         description:
           "V rámci tříčlenného týmu jsem pracoval na aplikaci určené pro techniky v terénu. Mým hlavním architektonickým přínosem byl kompletní refaktoring projektu z původní MVC architektury na čisté CQS (Command Query Separation), což výrazně zpřehlednilo kódovou bázi a usnadnilo další škálování. Mimo to jsem samostatně navrhoval a upravoval Code-First databázové modely na MSSQL a vyvíjel kompletní backendovou i frontendovou logiku v UI frameworku DotVVM.",
       },
       {
         id: "flow-of-life",
         name: "Flow of Life",
-        summary:
-          "Kompletní systém pro evidenci pacientů v medicínské oblasti.",
+        summary: "Kompletní systém pro evidenci pacientů v medicínské oblasti.",
         stack: [".NET 8", "ASP.NET Core", "EF Core", "Marten (PostgreSQL)", "Blazor", "Use Case pattern"],
         description:
           "Na rozsáhlém medicínském systému jsem se v šestičlenném týmu podílel na realizaci klíčové business logiky, vývoji REST API a datového feedingu. Celý projekt stavěl na Use Case patternu. Úzce jsem pracoval s dokumentovou databází Marten nad PostgreSQL, kde jsem navrhoval a upravoval datové struktury, a zároveň jsem odbavoval navazující úpravy a opravy v uživatelském rozhraní postaveném na Blazoru.",
@@ -87,7 +97,7 @@ export const experience = [
 ];
 
 // Vybrané osobní / školní projekty.
-export const projects = [
+const projects = [
   {
     id: "hivesync",
     name: "HiveSync",
@@ -147,9 +157,7 @@ export const projects = [
     description:
       "Hra vznikla v roce 2023 a cílem projektu bylo naučit se základní mechaniky herního vývoje v Unity engine a naprogramovat jednoduchou hru za jeden den. Vybral jsem proto jako inspiraci známou hru Flappy Bird a vytvořil její vlastní verzi s pirátskou lodí v tomto herním enginu. Celá hra byla opravdu naprogramována během jednoho dne a lze si ji zahrát skrze .exe soubor z mého GiHubu. Zdrojový kód už se mi bohužel nepovedlo zpětně dohledat, kvůli náhlému selhání disku starého počítače na kterém jsem ji vytvořil.",
     tags: ["Game Development", "Unity", "C#", "Game Mechanics"],
-    links: [
-      { label: "GitHub", url: "https://github.com/WestrCZ/flappy-ship" },
-    ],
+    links: [{ label: "GitHub", url: "https://github.com/WestrCZ/flappy-ship" }],
   },
   {
     id: "KultiKino",
@@ -170,9 +178,7 @@ export const projects = [
     description:
       "Vývoj hry v jazyce Python spolu s knihovnou Pygame. Hra je implementována jako desktopová aplikace a je určena pro hraní na počítači. Hráč ovládá postavu žabáka, který se snaží proskákat levely a zachránit svůj sendvič, který mu ukradl král much. Hra obsahuje několik úrovní obtížnosti a je navržena tak, aby byla zábavná, ale zároveň obtížná. Momentální verze je nehratelná a dostupná pouze jako zdrojový kód. Vyvíjeli jsme ji v tříčlenném týmu abychom naučili kamaráda programovat, a bohužel jsme na ni neměli dále čas, plánujeme ji však dodělat.",
     tags: ["Game Development", "Python", "Pygame", "Desktop Application"],
-    links: [
-      { label: "GitHub", url: "https://github.com/HogoFrogo/HogoFrogo/tree/hogo-frogo-pygame-attempt" },
-    ],
+    links: [{ label: "GitHub", url: "https://github.com/HogoFrogo/HogoFrogo/tree/hogo-frogo-pygame-attempt" }],
   },
   {
     id: "NeuralNetwork",
@@ -181,8 +187,8 @@ export const projects = [
     description:
       "Vývoj a implementace neuronové sítě v jazyce Python v rámci školního matematického semináře. Neuronová síť sloužila k rozpoznání ručně psané číslice. Tento projekt nakonec nebyl dodělán, protože jsme se rozhodli ho přenechat jednomu z nás jako maturitní projekt. Projekt je tedy v nefunkčním stavu a slouží pouze jako ukázka. Během vývoje jsme se naučili základy strojového učení. Projekt v budoucnu plánuji předělat a postavit jednak na základě běžných knihoven a druhak dodělat verzi, kterou jsme rozdělali, kde se snažíme knihovny nepoužívat.",
     tags: ["Machine Learning", "Python", "Data Analysis"],
-    links: [
-      { label: "GitHub", url: "https://github.com/WestrCZ/NeuralNetworksITG" },
-    ],
+    links: [{ label: "GitHub", url: "https://github.com/WestrCZ/NeuralNetworksITG" }],
   },
 ];
+
+export const portfolioData = { profile, skills, experience, projects };

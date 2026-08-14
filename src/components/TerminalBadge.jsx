@@ -1,10 +1,16 @@
-import { profile } from "../data/portfolioData.js";
+import { useI18n } from "../i18n/I18nProvider.jsx";
 
 // Compact terminal widget — the console motif kept as a small accent.
+// "whoami" and "session — zsh" are intentionally left untranslated: they're
+// terminal syntax / flavor text, not localizable UI copy. Only the status
+// label and value are localized.
 export default function TerminalBadge() {
+  const { t, data } = useI18n();
+  const { profile } = data;
+
   return (
     <div className="w-full max-w-xs rounded-lg border border-white/10 bg-base-900/70 backdrop-blur overflow-hidden shadow-xl shadow-black/30 font-mono text-xs">
-      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/10 bg-base-800/60">
+      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/10 bg-base-800/60" aria-hidden="true">
         <span className="h-2 w-2 rounded-full bg-ember/70" />
         <span className="h-2 w-2 rounded-full bg-gold/70" />
         <span className="h-2 w-2 rounded-full bg-aurora/70" />
@@ -16,8 +22,8 @@ export default function TerminalBadge() {
         </p>
         <p className="text-aurora mt-0.5">&gt; {profile.name} — {profile.title}</p>
         <p className="text-fjord">
-          &gt; status: <span className="text-aurora">available</span>
-          <span className="animate-blink text-aurora">_</span>
+          &gt; {t.terminal.status}: <span className="text-aurora">{t.terminal.available}</span>
+          <span className="animate-blink text-aurora" aria-hidden="true">_</span>
         </p>
       </div>
     </div>

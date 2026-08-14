@@ -28,7 +28,7 @@ export default function ProjectCard({ project }) {
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-body text-slate-400 hover:text-gold transition-colors"
             >
-              {link.label} <ExternalLink size={12} />
+              {link.label} <ExternalLink size={12} aria-hidden="true" />
             </a>
           ))}
         </div>
