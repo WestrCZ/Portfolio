@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://westrcz.github.io/Portfolio/sitemap.xml
