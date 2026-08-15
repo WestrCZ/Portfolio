@@ -17,8 +17,8 @@ export default {
         ember: "#b5533c", // rust/ember — used sparingly for warmth
       },
       fontFamily: {
-        display: ["'Fraunces'", "serif"],
-        body: ["'Karla'", "sans-serif"],
+        display: ["'Fraunces Variable'", "serif"],
+        body: ["'Karla Variable'", "sans-serif"],
         mono: ["'JetBrains Mono'", "monospace"],
       },
       keyframes: {
