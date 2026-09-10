@@ -26,6 +26,14 @@ export const ui = {
     status: "status",
     available: "available",
   },
+  email: {
+    copied: "Copied!",
+    tooltip: "Click to copy email",
+    mailto: "Open in email client",
+  },
+  backToTop: {
+    label: "Back to top",
+  },
   experience: {
     eyebrow: "01 · Professional Experience",
     title: "Where I've worked",

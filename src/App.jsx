@@ -7,6 +7,7 @@ import ProjectSection from "./components/ProjectSection.jsx";
 import StackSection from "./components/StackSection.jsx";
 import ContactSection from "./components/ContactSection.jsx";
 import Footer from "./components/Footer.jsx";
+import BackToTop from "./components/BackToTop.jsx";
 
 export default function App() {
   const { t } = useI18n();
@@ -34,6 +35,7 @@ export default function App() {
         <ContactSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

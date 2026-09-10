@@ -26,6 +26,14 @@ export const ui = {
     status: "stav",
     available: "dostupný",
   },
+  email: {
+    copied: "Zkopírováno!",
+    tooltip: "Kliknutím zkopíruješ e-mail",
+    mailto: "Otevřít v e-mailovém klientu",
+  },
+  backToTop: {
+    label: "Zpět nahoru",
+  },
   experience: {
     eyebrow: "01 · Komerční praxe",
     title: "Kde jsem pracoval",

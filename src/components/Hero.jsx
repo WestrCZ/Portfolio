@@ -1,6 +1,7 @@
 import { MapPin, Github, Linkedin, Mail } from "lucide-react";
 import { useI18n } from "../i18n/I18nProvider.jsx";
 import TerminalBadge from "./TerminalBadge.jsx";
+import EmailButton from "./EmailButton.jsx";
 import { trackEvent } from "../utils/analytics.js";
 
 export default function Hero() {
@@ -52,13 +53,14 @@ export default function Hero() {
               >
                 <Linkedin size={16} aria-hidden="true" /> LinkedIn
               </a>
-              <a
-                href={profile.links.email}
-                onClick={() => trackEvent("hero-email-click")}
+              <EmailButton
+                location="hero"
+                email={profile.links.email}
+                label={t.hero.emailLabel}
+                icon={Mail}
+                iconSize={16}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-medium text-slate-200 hover:border-gold/50 hover:text-gold transition-colors"
-              >
-                <Mail size={16} aria-hidden="true" /> {t.hero.emailLabel}
-              </a>
+              />
             </div>
           </div>
 

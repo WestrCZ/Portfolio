@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useI18n } from "../i18n/I18nProvider.jsx";
 import LanguageSwitcher from "./LanguageSwitcher.jsx";
-import { trackEvent } from "../utils/analytics.js";
+import EmailButton from "./EmailButton.jsx";
 
 export default function NavBar() {
   const { t, data } = useI18n();
@@ -68,13 +68,12 @@ export default function NavBar() {
           </ul>
           <div className="hidden sm:flex items-center gap-3 shrink-0">
             <LanguageSwitcher />
-            <a
-              href={data.profile.links.email}
-              onClick={() => trackEvent("navbar-email-click")}
+            <EmailButton
+              location="navbar"
+              email={data.profile.links.email}
+              label={t.nav.writeEmail}
               className="font-body text-xs px-4 py-1.5 rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition-colors"
-            >
-              {t.nav.writeEmail}
-            </a>
+            />
           </div>
           <button
             type="button"
@@ -140,14 +139,13 @@ export default function NavBar() {
         </ul>
         <div className="shrink-0 px-6 py-6 border-t border-white/10 flex items-center justify-between gap-4 flex-wrap">
           <LanguageSwitcher size="large" />
-          <a
-            href={data.profile.links.email}
-            onClick={closeMenu}
-            data-goatcounter-click="mobile-nav-email-click"
+          <EmailButton
+            location="navbar"
+            email={data.profile.links.email}
+            label={t.nav.writeEmail}
+            onMailtoTriggered={closeMenu}
             className="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 rounded-full bg-gold font-body text-sm font-medium text-base-950 hover:bg-gold/90 transition-colors"
-          >
-            {t.nav.writeEmail}
-          </a>
+          />
         </div>
       </div>
     </header>
