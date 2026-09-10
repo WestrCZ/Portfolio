@@ -149,8 +149,8 @@ const projects = [
     tags: ["Web Development", "HTML", "CSS"],
     links: [
       { label: "GitHub", url: "https://github.com/WestrCZ/FolkMusicWeb/" },
-      { label: "Folk Music Web", url: "https://westrcz.github.io/FolkMusicWeb/" },
       { label: "GitHub (Original version)", url: "https://github.com/WestrCZ/FolkMusicWeb_Old" },
+      { label: "Folk Music Web", url: "https://westrcz.github.io/FolkMusicWeb/" },
       { label: "Folk Music Web (Original version)", url: "https://westrcz.github.io/FolkMusicWeb_Old/" },
     ],
   },

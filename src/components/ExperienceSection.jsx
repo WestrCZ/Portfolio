@@ -6,7 +6,7 @@ export default function ExperienceSection() {
   const { t, data } = useI18n();
 
   return (
-    <section id="experience" className="px-6">
+    <section id="experience" className="px-6 scroll-mt-28 md:scroll-mt-20">
       <div className="mx-auto max-w-4xl">
         <SectionHeading eyebrow={t.experience.eyebrow} title={t.experience.title} />
         <div className="space-y-6">

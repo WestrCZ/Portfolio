@@ -79,6 +79,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -86,6 +87,16 @@ body {
   background-image:
     radial-gradient(ellipse 70% 45% at 15% -10%, rgb(79 209 174 / 0.08), transparent),
     radial-gradient(ellipse 60% 45% at 100% 15%, rgb(91 132 177 / 0.08), transparent);
+  overflow-x: hidden;
+}
+
+@media (max-width: 639px) {
+  .text-slate-500 {
+    @apply text-slate-400;
+  }
+  .text-slate-400 {
+    @apply text-slate-300;
+  }
 }
 
 /* faint topographic contour lines, evoking fjords/mountain maps rather
@@ -108,6 +119,10 @@ button:focus-visible {
   outline: 2px solid #4fd1ae;
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+body.mobile-nav-open {
+  overflow-y: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {

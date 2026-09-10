@@ -10,10 +10,10 @@ export default function StackSection() {
   const { t, data } = useI18n();
 
   return (
-    <section id="stack" className="px-6">
+    <section id="stack" className="px-6 scroll-mt-28 md:scroll-mt-20">
       <div className="mx-auto max-w-4xl">
         <SectionHeading eyebrow={t.stack.eyebrow} title={t.stack.title} />
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2.5 sm:gap-3">
           {data.skills.map((skill) => {
             const Icon = ICONS[skill.icon] ?? Code2;
             return (

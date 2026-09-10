@@ -15,7 +15,7 @@ export const ui = {
     projects: "Projekty",
     stack: "Stack",
     contact: "Kontakt",
-    writeEmail: "Napsat",
+    writeEmail: "Napsat mi",
     languageSwitcherLabel: "Výběr jazyka",
   },
   skipLink: "Přeskočit na hlavní obsah",

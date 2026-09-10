@@ -7,12 +7,12 @@ export default function Hero() {
   const { profile } = data;
 
   return (
-    <section id="top" className="relative pt-40 pb-10 px-6 overflow-hidden">
+    <section id="top" className="relative pt-24 sm:pt-40 pb-10 px-6 overflow-hidden">
       <div className="absolute inset-0 contour-texture pointer-events-none" />
       <div className="relative mx-auto max-w-5xl">
         <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end animate-fadeUp">
           <div>
-            <h1 className="font-display font-semibold text-4xl sm:text-6xl leading-[1.08] tracking-tight text-bone">
+            <h1 className="font-display font-semibold text-3xl sm:text-6xl leading-[1.08] tracking-tight text-bone">
               {profile.name}
               <span className="block mt-2 text-aurora">{profile.title}</span>
             </h1>
@@ -32,12 +32,13 @@ export default function Hero() {
                 {profile.availability}
               </span>
             </div>
-            <div className="mt-7 flex flex-wrap items-center gap-3">
+            <div className="mt-7 grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
               <a
                 href={profile.links.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-aurora px-5 py-2.5 font-body text-sm font-medium text-base-950 hover:bg-aurora/90 transition-colors"
+                data-goatcounter-click="hero-github-click"
+                className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 rounded-full bg-aurora px-5 py-2.5 font-body text-sm font-medium text-base-950 hover:bg-aurora/90 transition-colors"
               >
                 <Github size={16} aria-hidden="true" /> GitHub
               </a>
@@ -45,13 +46,15 @@ export default function Hero() {
                 href={profile.links.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-medium text-slate-200 hover:border-fjord/50 hover:text-fjord transition-colors"
+                data-goatcounter-click="hero-linkedin-click"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-medium text-slate-200 hover:border-fjord/50 hover:text-fjord transition-colors"
               >
                 <Linkedin size={16} aria-hidden="true" /> LinkedIn
               </a>
               <a
                 href={profile.links.email}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-medium text-slate-200 hover:border-gold/50 hover:text-gold transition-colors"
+                data-goatcounter-click="hero-email-click"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-medium text-slate-200 hover:border-gold/50 hover:text-gold transition-colors"
               >
                 <Mail size={16} aria-hidden="true" /> {t.hero.emailLabel}
               </a>

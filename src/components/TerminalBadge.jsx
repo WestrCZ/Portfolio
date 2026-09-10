@@ -9,19 +9,19 @@ export default function TerminalBadge() {
   const { profile } = data;
 
   return (
-    <div className="w-full max-w-xs rounded-lg border border-white/10 bg-base-900/70 backdrop-blur overflow-hidden shadow-xl shadow-black/30 font-mono text-xs">
-      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/10 bg-base-800/60" aria-hidden="true">
+    <div className="w-full max-w-xs rounded-lg border border-white/10 bg-base-900/70 backdrop-blur overflow-hidden shadow-xl shadow-black/30 font-mono text-[11px] sm:text-xs max-h-[260px] sm:max-h-none flex flex-col">
+      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/10 bg-base-800/60 shrink-0" aria-hidden="true">
         <span className="h-2 w-2 rounded-full bg-ember/70" />
         <span className="h-2 w-2 rounded-full bg-gold/70" />
         <span className="h-2 w-2 rounded-full bg-aurora/70" />
         <span className="ml-2 text-[10px] text-slate-500">session — zsh</span>
       </div>
-      <div className="px-3.5 py-3 leading-relaxed">
+      <div className="p-3 sm:p-5 leading-relaxed overflow-x-auto overflow-y-auto">
         <p className="text-slate-500">
           <span className="text-slate-600">$ </span>whoami
         </p>
-        <p className="text-aurora mt-0.5">&gt; {profile.name} — {profile.title}</p>
-        <p className="text-fjord">
+        <p className="text-aurora mt-0.5 break-words">&gt; {profile.name} — {profile.title}</p>
+        <p className="text-fjord break-words">
           &gt; {t.terminal.status}: <span className="text-aurora">{t.terminal.available}</span>
           <span className="animate-blink text-aurora" aria-hidden="true">_</span>
         </p>

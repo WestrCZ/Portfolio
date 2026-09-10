@@ -133,7 +133,7 @@ const projects = [
     tags: ["Game Development", "JavaScript", "HTML", "CSS", "Mobile Friendly"],
     links: [
       { label: "GitHub", url: "https://github.com/WestrCZ/newton-apple-game" },
-      { label: "Hra", url: "https://westrcz.github.io/newton-apple-game/" },
+      { label: "Zahrát si hru", url: "https://westrcz.github.io/newton-apple-game/" },
     ],
   },
   {
@@ -145,8 +145,8 @@ const projects = [
     tags: ["Web Development", "HTML", "CSS"],
     links: [
       { label: "GitHub", url: "https://github.com/WestrCZ/FolkMusicWeb/" },
-      { label: "Folk Music Web", url: "https://westrcz.github.io/FolkMusicWeb/" },
       { label: "GitHub (Původní verze)", url: "https://github.com/WestrCZ/FolkMusicWeb_Old" },
+      { label: "Folk Music Web", url: "https://westrcz.github.io/FolkMusicWeb/" },
       { label: "Folk Music Web (Původní verze)", url: "https://westrcz.github.io/FolkMusicWeb_Old/" },
     ],
   },

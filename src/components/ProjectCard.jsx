@@ -1,6 +1,15 @@
 import {ExternalLink} from "lucide-react";
 
 export default function ProjectCard({ project }) {
+
+  const createSlug = (str) =>
+    str.toLowerCase()
+       .normalize("NFD")
+       .replace(/[\u0300-\u036f]/g, "") // removes diacritics
+      .replace(/[^a-z0-9]/g, "-") // replace space with dash
+      .replace(/-+/g, "-") // merges multiple dashes into one
+      .replace(/^-|-$/g, ""); // trims dashes from start and end
+
   return (
     <div className="glass rounded-2xl p-6 sm:p-7 hover:border-aurora/25 transition-colors">
       <h3 className="font-display text-lg text-bone">{project.name}</h3>
@@ -20,17 +29,22 @@ export default function ProjectCard({ project }) {
       </div>
       {project.links.length > 0 && (
         <div className="mt-5 flex flex-wrap gap-4 pt-4 border-t border-white/5">
-          {project.links.map((link) => (
+          {project.links.map((link) => {
+            const eventName = `project-${createSlug(project.name)}-${createSlug(link.label)}-click`;
+            
+            return (
             <a
               key={link.url}
               href={link.url}
               target="_blank"
               rel="noreferrer"
+              data-goatcounter-click={eventName}
               className="inline-flex items-center gap-1.5 text-xs font-body text-slate-400 hover:text-gold transition-colors"
             >
               {link.label} <ExternalLink size={12} aria-hidden="true" />
             </a>
-          ))}
+            );
+            })}
         </div>
       )}
     </div>
