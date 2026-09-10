@@ -1,4 +1,5 @@
 import {ExternalLink} from "lucide-react";
+import { trackEvent } from "../utils/analytics.js";
 
 export default function ProjectCard({ project }) {
 
@@ -38,7 +39,7 @@ export default function ProjectCard({ project }) {
               href={link.url}
               target="_blank"
               rel="noreferrer"
-              data-goatcounter-click={eventName}
+              onClick={() => trackEvent(eventName)}
               className="inline-flex items-center gap-1.5 text-xs font-body text-slate-400 hover:text-gold transition-colors"
             >
               {link.label} <ExternalLink size={12} aria-hidden="true" />

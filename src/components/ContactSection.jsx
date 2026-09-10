@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useI18n } from "../i18n/I18nProvider.jsx";
+import { trackEvent } from "../utils/analytics.js";
 
 export default function ContactSection() {
   const { t, data, interpolate } = useI18n();
@@ -18,7 +19,7 @@ export default function ContactSection() {
         <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
           <a
             href={profile.links.email}
-            data-goatcounter-click="contact-email-click"
+            onClick={() => trackEvent("contact-email-click")}
             className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 font-body text-sm font-medium text-base-950 hover:bg-gold/90 transition-colors"
           >
             <Mail size={16} aria-hidden="true" /> {t.contact.writeEmail}
@@ -27,7 +28,7 @@ export default function ContactSection() {
             href={profile.links.github}
             target="_blank"
             rel="noreferrer"
-            data-goatcounter-click="contact-github-click"
+            onClick={() => trackEvent("contact-github-click")}
             className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 font-body text-sm font-medium text-slate-200 hover:border-aurora/40 hover:text-aurora transition-colors"
           >
             <Github size={16} aria-hidden="true" /> GitHub
@@ -36,7 +37,7 @@ export default function ContactSection() {
             href={profile.links.linkedin}
             target="_blank"
             rel="noreferrer"
-            data-goatcounter-click="contact-linkedin-click"
+            onClick={() => trackEvent("contact-linkedin-click")}
             className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 font-body text-sm font-medium text-slate-200 hover:border-fjord/40 hover:text-fjord transition-colors"
           >
             <Linkedin size={16} aria-hidden="true" /> LinkedIn

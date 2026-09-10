@@ -125,6 +125,10 @@ body.mobile-nav-open {
   overflow-y: hidden;
 }
 
+a svg {
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

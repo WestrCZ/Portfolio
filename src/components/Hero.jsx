@@ -1,6 +1,7 @@
 import { MapPin, Github, Linkedin, Mail } from "lucide-react";
 import { useI18n } from "../i18n/I18nProvider.jsx";
 import TerminalBadge from "./TerminalBadge.jsx";
+import { trackEvent } from "../utils/analytics.js";
 
 export default function Hero() {
   const { t, data } = useI18n();
@@ -37,7 +38,7 @@ export default function Hero() {
                 href={profile.links.github}
                 target="_blank"
                 rel="noreferrer"
-                data-goatcounter-click="hero-github-click"
+                onClick={() => trackEvent("hero-github-click")}
                 className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 rounded-full bg-aurora px-5 py-2.5 font-body text-sm font-medium text-base-950 hover:bg-aurora/90 transition-colors"
               >
                 <Github size={16} aria-hidden="true" /> GitHub
@@ -46,14 +47,14 @@ export default function Hero() {
                 href={profile.links.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                data-goatcounter-click="hero-linkedin-click"
+                onClick={() => trackEvent("hero-linkedin-click")}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-medium text-slate-200 hover:border-fjord/50 hover:text-fjord transition-colors"
               >
                 <Linkedin size={16} aria-hidden="true" /> LinkedIn
               </a>
               <a
                 href={profile.links.email}
-                data-goatcounter-click="hero-email-click"
+                onClick={() => trackEvent("hero-email-click")}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-medium text-slate-200 hover:border-gold/50 hover:text-gold transition-colors"
               >
                 <Mail size={16} aria-hidden="true" /> {t.hero.emailLabel}

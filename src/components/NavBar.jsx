@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useI18n } from "../i18n/I18nProvider.jsx";
 import LanguageSwitcher from "./LanguageSwitcher.jsx";
+import { trackEvent } from "../utils/analytics.js";
 
 export default function NavBar() {
   const { t, data } = useI18n();
@@ -69,7 +70,7 @@ export default function NavBar() {
             <LanguageSwitcher />
             <a
               href={data.profile.links.email}
-              data-goatcounter-click="nav-email-click"
+              onClick={() => trackEvent("navbar-email-click")}
               className="font-body text-xs px-4 py-1.5 rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition-colors"
             >
               {t.nav.writeEmail}
