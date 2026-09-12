@@ -15,6 +15,7 @@ export default {
         fjord: "#5b84b1", // muted fjord-water blue — secondary accent
         gold: "#c9a15a", // aged bronze/rune-gold — tertiary accent
         ember: "#b5533c", // rust/ember — used sparingly for warmth
+        matrix: "#7ec850", // muted terminal/phosphor green — distinct hue from aurora (teal) so the TerminalBadge easter egg reads as its own moment, not just another aurora accent
       },
       fontFamily: {
         display: ["'Fraunces Variable'", "serif"],

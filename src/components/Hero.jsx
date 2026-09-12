@@ -34,33 +34,37 @@ export default function Hero() {
                 {profile.availability}
               </span>
             </div>
-            <div className="mt-7 grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
+            <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-3">
               <a
                 href={profile.links.github}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => trackEvent("hero-github-click")}
-                className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 rounded-full bg-aurora px-5 py-2.5 font-body text-sm font-medium text-base-950 hover:bg-aurora/90 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-aurora px-5 py-3 font-body text-sm font-medium text-base-950 hover:bg-aurora/90 transition-colors shadow-lg shadow-aurora/10"
               >
                 <Github size={16} aria-hidden="true" /> GitHub
               </a>
-              <a
-                href={profile.links.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => trackEvent("hero-linkedin-click")}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-medium text-slate-200 hover:border-fjord/50 hover:text-fjord transition-colors"
-              >
-                <Linkedin size={16} aria-hidden="true" /> LinkedIn
-              </a>
-              <EmailButton
-                location="hero"
-                email={profile.links.email}
-                label={t.hero.emailLabel}
-                icon={Mail}
-                iconSize={16}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-medium text-slate-200 hover:border-gold/50 hover:text-gold transition-colors"
-              />
+              <div className="grid grid-cols-2 sm:flex sm:flex-row gap-3 w-full sm:w-auto">
+                <a
+                  href={profile.links.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => trackEvent("hero-linkedin-click")}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 font-body text-sm font-medium text-slate-200 hover:border-fjord/50 hover:text-fjord transition-colors"
+                >
+                  <Linkedin size={16} aria-hidden="true" /> LinkedIn
+                </a>
+                <EmailButton
+                  location="hero"
+                  email={profile.links.email}
+                  label={t.hero.emailLabel}
+                  icon={Mail}
+                  iconSize={16}
+                  popupPosition="above"
+                  wrapperClassName="w-full sm:w-auto"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 font-body text-sm font-medium text-slate-200 hover:border-gold/50 hover:text-gold transition-colors"
+                />
+              </div>
             </div>
           </div>
 

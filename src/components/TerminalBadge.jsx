@@ -95,14 +95,17 @@ export default function TerminalBadge() {
         </p>
 
         {/* Capped history — only the last MAX_VISIBLE_ENTRIES attempts are
-            kept; anything older is dropped as new ones arrive. */}
+            kept; anything older is dropped as new ones arrive. Success uses
+            "matrix" (a dedicated terminal green) instead of "aurora" so the
+            easter-egg moment reads as distinct from the site's regular
+            accent color, which appears everywhere else on the page. */}
         {history.map((entry, index) => (
           <div key={index} className="mt-1.5">
             <p className="text-slate-500 break-words">
               <span className="text-slate-600">$ </span>
               {entry.command}
             </p>
-            <p className={`break-words ${entry.granted ? "text-aurora" : "text-ember"}`}>
+            <p className={`break-words ${entry.granted ? "text-matrix" : "text-ember"}`}>
               &gt;{" "}
               {entry.granted
                 ? "Access granted. You found the secret terminal!"
@@ -130,7 +133,7 @@ export default function TerminalBadge() {
               autoComplete="off"
               autoCapitalize="off"
               autoCorrect="off"
-              aria-label="Terminal command input"
+              aria-label={t.terminal.inputLabel}
               className="flex-1 ml-1 bg-transparent border-none outline-none text-slate-300 caret-aurora placeholder:text-slate-700"
             />
           </form>

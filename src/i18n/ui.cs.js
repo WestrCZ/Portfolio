@@ -25,6 +25,7 @@ export const ui = {
   terminal: {
     status: "stav",
     available: "dostupný",
+    inputLabel: "Zadání terminálového příkazu",
   },
   email: {
     copied: "Zkopírováno!",

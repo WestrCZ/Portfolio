@@ -7,17 +7,47 @@ import EmailButton from "./EmailButton.jsx";
 export default function NavBar() {
   const { t, data } = useI18n();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const navLinks = [
-    { href: "#experience", label: t.nav.experience },
-    { href: "#projects", label: t.nav.projects },
-    { href: "#stack", label: t.nav.stack },
-    { href: "#contact", label: t.nav.contact },
+    { href: "#experience", id: "experience", label: t.nav.experience },
+    { href: "#projects", id: "projects", label: t.nav.projects },
+    { href: "#stack", id: "stack", label: t.nav.stack },
+    { href: "#contact", id: "contact", label: t.nav.contact },
   ];
+
+  // Scrollspy: highlights the nav link for whichever section is currently
+  // in view.
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight * 0.4;
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+
+      if (window.scrollY + windowHeight >= documentHeight - 50) {
+        setActiveSection("contact");
+        return;
+      }
+
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const section = document.getElementById(navLinks[i].id);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(navLinks[i].id);
+          return;
+        }
+      }
+      setActiveSection("");
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [navLinks]);
 
   function closeMenu() {
     setIsMenuOpen(false);
   }
+
   useEffect(() => {
     if (isMenuOpen) {
       const scrollY = window.scrollY;
@@ -58,16 +88,25 @@ export default function NavBar() {
             <span className="inline-block h-[2px] w-2 bg-current align-baseline ml-0.5 animate-blink" />
           </a>
           <ul className="hidden sm:flex items-center gap-7 font-body text-sm text-slate-400">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className="hover:text-bone transition-colors">
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className={`transition-colors ${isActive ? "text-aurora font-medium" : "hover:text-bone"
+                      }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
           <div className="hidden sm:flex items-center gap-3 shrink-0">
             <LanguageSwitcher />
+            {/* popupPosition defaults to "below" — the navbar sits near the
+                top of the page, so there's always room underneath it. */}
             <EmailButton
               location="navbar"
               email={data.profile.links.email}
@@ -87,16 +126,16 @@ export default function NavBar() {
           </button>
         </div>
       </nav>
+
       <div
         id="mobile-nav-overlay"
         role="dialog"
         aria-modal="true"
         aria-label={t.nav.mobileMenuLabel}
-        className={`fixed inset-0 z-[60] sm:hidden bg-base-950/95 backdrop-blur-2xl flex flex-col transition-all duration-300 ease-out ${
-          isMenuOpen
+        className={`fixed inset-0 z-[60] sm:hidden bg-base-950/95 backdrop-blur-2xl flex flex-col transition-all duration-300 ease-out ${isMenuOpen
             ? "opacity-100 translate-y-0 visible"
             : "opacity-0 -translate-y-3 invisible pointer-events-none"
-        }`}
+          }`}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0">
           <p className="font-mono text-xs text-slate-500">
@@ -120,7 +159,7 @@ export default function NavBar() {
                 className="flex items-center gap-3 py-4 min-h-[44px] hover:text-aurora transition-colors"
               >
                 <span className="text-gold/70 font-mono text-lg" aria-hidden="true">
-                  {/* Combined Rune Symbol */}
+                  {/* Combined rune symbol */}
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     {/* Upper part */}
                     <path d="M 14 3.5 L 5 9.5 L 12.5 14.5" />
@@ -137,14 +176,27 @@ export default function NavBar() {
             </li>
           ))}
         </ul>
-        <div className="shrink-0 px-6 py-6 border-t border-white/10 flex items-center justify-between gap-4 flex-wrap">
+        {/*
+          Stacked (flex-col, items-center) instead of a side-by-side
+          "justify-between ... flex-wrap" row on purpose: with two items in
+          a justify-between row, wrapping onto separate lines makes
+          justify-between collapse to flex-start for the lone item on its
+          own line — which silently shoved the EmailButton to the left edge
+          of the screen instead of the right, exactly where it looked like
+          it belonged. That mismatch was what pushed the reveal popup off
+          screen. Stacking removes the ambiguity: each item is always
+          centered on its own row, so the popup's right-edge anchor always
+          lines up with where the button actually is.
+        */}
+        <div className="shrink-0 px-6 py-6 border-t border-white/10 flex flex-col items-center gap-4">
           <LanguageSwitcher size="large" />
           <EmailButton
             location="navbar"
             email={data.profile.links.email}
             label={t.nav.writeEmail}
             onMailtoTriggered={closeMenu}
-            className="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 rounded-full bg-gold font-body text-sm font-medium text-base-950 hover:bg-gold/90 transition-colors"
+            popupPosition="above"
+            className="inline-flex items-center justify-center min-h-[44px] px-4 py-2 rounded-full border border-gold/40 font-body text-xs font-medium text-gold hover:bg-gold/10 transition-colors"
           />
         </div>
       </div>

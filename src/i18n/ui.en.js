@@ -25,6 +25,7 @@ export const ui = {
   terminal: {
     status: "status",
     available: "available",
+    inputLabel: "Terminal command input",
   },
   email: {
     copied: "Copied!",
