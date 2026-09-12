@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useI18n } from "../i18n/I18nProvider.jsx";
 import { trackEvent } from "../utils/analytics.js";
+import EmailButton from "./EmailButton.jsx";
 
 export default function ContactSection() {
   const { t, data, interpolate } = useI18n();
@@ -17,13 +18,14 @@ export default function ContactSection() {
           {interpolate(t.contact.intro, { availability: profile.availability })}
         </p>
         <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
-          <a
-            href={profile.links.email}
-            onClick={() => trackEvent("contact-email-click")}
+          <EmailButton
+            location="contact"
+            email={profile.links.email}
+            label={t.contact.writeEmail}
+            icon={Mail}
+            iconSize={16}
             className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 font-body text-sm font-medium text-base-950 hover:bg-gold/90 transition-colors"
-          >
-            <Mail size={16} aria-hidden="true" /> {t.contact.writeEmail}
-          </a>
+          />
           <a
             href={profile.links.github}
             target="_blank"

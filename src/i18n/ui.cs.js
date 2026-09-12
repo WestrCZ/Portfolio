@@ -25,6 +25,15 @@ export const ui = {
   terminal: {
     status: "stav",
     available: "dostupný",
+    inputLabel: "Zadání terminálového příkazu",
+  },
+  email: {
+    copied: "Zkopírováno!",
+    tooltip: "Kliknutím zkopíruješ e-mail",
+    mailto: "Otevřít v e-mailovém klientu",
+  },
+  backToTop: {
+    label: "Zpět nahoru",
   },
   experience: {
     eyebrow: "01 · Komerční praxe",

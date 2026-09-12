@@ -1,4 +1,5 @@
 import { useI18n } from "../i18n/I18nProvider.jsx";
+import { trackEvent } from "../utils/analytics.js";
 
 // Terminal-styled "$ lang: [CZ] / ENG" language switcher. Real <button>
 // elements (not clickable divs/spans), keyboard accessible, with
@@ -6,21 +7,14 @@ import { useI18n } from "../i18n/I18nProvider.jsx";
 export default function LanguageSwitcher({ size = "compact" }) {
   const { locale, setLocale, t } = useI18n();
 
-  // GoatCounter integration (A2): fires a custom event whenever the
-  // visitor actually changes language (not on every render, and not when
-  // they click the already-active button — we only want to *count* a real
-  // switch, not a no-op click). `window.goatcounter` only exists once the
-  // async count.js script from index.html has finished loading, so the
-  // `?.` optional chaining matters: without it, a click in the brief
-  // window before that script loads would throw instead of just skipping
-  // the analytics call for that one click.
+  // Fires a custom event whenever the visitor actually changes language
+  // (not on every render, and not when they click the already-active
+  // button — we only want to *count* a real switch, not a no-op click).
+  // Routed through trackEvent() like every other interaction in the app,
+  // so the "does window.goatcounter exist yet" guard lives in one place.
   function handleLanguageChange(lang) {
     if (lang !== locale) {
-      window.goatcounter?.count({
-        path: `lang-switch-${lang}`,
-        title: `Language changed to ${lang}`,
-        event: true,
-      });
+      trackEvent(`lang-switch-${lang}`, { title: `Language changed to ${lang}` });
     }
     setLocale(lang);
   }

@@ -25,6 +25,15 @@ export const ui = {
   terminal: {
     status: "status",
     available: "available",
+    inputLabel: "Terminal command input",
+  },
+  email: {
+    copied: "Copied!",
+    tooltip: "Click to copy email",
+    mailto: "Open in email client",
+  },
+  backToTop: {
+    label: "Back to top",
   },
   experience: {
     eyebrow: "01 · Professional Experience",
